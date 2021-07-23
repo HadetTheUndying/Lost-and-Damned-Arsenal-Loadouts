@@ -1,0 +1,39 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "ML700_Grenade_Launcher_BP";
+this addPrimaryWeaponItem "ML700_6rnd_HE";
+this addWeapon "Weap_melee_knife";
+
+comment "Add containers";
+this forceAddUniform "U_TIOW_Cultist_brown";
+this addVest "TIOW_Cultist_Gear2";
+
+comment "Add items to containers";
+for "_i" from 1 to 6 do {this addItemToUniform "ML700_6rnd_HE";};
+for "_i" from 1 to 4 do {this addItemToVest "ML700_6rnd_HE";};
+this addHeadgear "TIOW_Cultist_Hood_brown";
+this addGoggles "TIOW_Cultist_FaceCover_Brown";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+
+comment "Set identity";
+[this,"ChaosHead_51","male02gre"] call BIS_fnc_setIdentity;

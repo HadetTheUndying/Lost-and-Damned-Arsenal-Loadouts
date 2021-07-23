@@ -1,0 +1,52 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "ML700_LMG_Stubber_Black";
+this addPrimaryWeaponItem "ML700_Stubber_Drum";
+this addWeapon "RamirisMelee_Chainsword_Heretic";
+
+comment "Add containers";
+this forceAddUniform "ML700_Bloodpact_Uniform1";
+this addVest "ML700_BP_Armor0";
+this addBackpack "ML700_BP_Gravchute";
+
+comment "Add binoculars";
+this addMagazine "Laserbatteries";
+this addWeapon "Laserdesignator";
+
+comment "Add items to containers";
+for "_i" from 1 to 9 do {this addItemToUniform "ML700_Stubber_Drum_Red";};
+for "_i" from 1 to 2 do {this addItemToVest "FirstAidKit";};
+this addItemToVest "ML700_frag_grenade_magazine";
+this addItemToVest "ML700_krak_grenade_magazine";
+this addItemToVest "ML700_Stubber_Drum_Red";
+for "_i" from 1 to 2 do {this addItemToBackpack "ML700_L_GravFuel";};
+this addItemToBackpack "ACE_EarPlugs";
+this addItemToBackpack "ML700_frag_grenade_magazine";
+this addItemToBackpack "ML700_krak_grenade_magazine";
+for "_i" from 1 to 2 do {this addItemToBackpack "TIOW_ig_smoke_grenade_mag";};
+this addHeadgear "ML700_Bloodpact_Helmet_Officer_Silver";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "TIOW_PreysenseGoggles";
+
+comment "Set identity";
+[this,"ChaosHead_51","male03engb"] call BIS_fnc_setIdentity;

@@ -1,0 +1,49 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "ML700_LMG_Stubber_Black";
+this addPrimaryWeaponItem "ML700_Stubber_Drum";
+this addWeapon "Knife_kukri";
+
+comment "Add containers";
+this forceAddUniform "IC_sos_U_rifleman_02_O";
+this addVest "Ren_ArmorSet_03_black";
+this addBackpack "Ren_Backpack_02_black";
+
+comment "Add binoculars";
+this addWeapon "Binocular";
+
+comment "Add items to containers";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+for "_i" from 1 to 5 do {this addItemToUniform "ML700_Stubber_Drum_Red";};
+for "_i" from 1 to 5 do {this addItemToVest "ML700_Stubber_Drum_Red";};
+this addItemToBackpack "ACE_EarPlugs";
+for "_i" from 1 to 2 do {this addItemToBackpack "ML700_frag_grenade_magazine";};
+this addItemToBackpack "ML700_krak_grenade_magazine";
+this addItemToBackpack "TIOW_ig_smoke_grenade_mag";
+this addHeadgear "TIOW_RenEnforcerMask_1";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "IC_cad_preysense_02_up";
+
+comment "Set identity";
+[this,"WhiteHead_17","male02gre"] call BIS_fnc_setIdentity;

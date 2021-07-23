@@ -1,0 +1,52 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "ICP_Rifle_Kantrael_sos";
+this addPrimaryWeaponItem "ic_las_powerpack";
+this addWeapon "Knife_kukri";
+
+comment "Add containers";
+this forceAddUniform "IC_sos_U_rifleman_02_O";
+this addVest "IC_Chaos_Armor_01";
+this addBackpack "Ren_Backpack_02_black";
+
+comment "Add binoculars";
+this addWeapon "Binocular";
+
+comment "Add items to containers";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+for "_i" from 1 to 6 do {this addItemToUniform "ic_las_powerpack";};
+for "_i" from 1 to 4 do {this addItemToVest "ic_las_powerpack";};
+this addItemToBackpack "ACE_EarPlugs";
+for "_i" from 1 to 2 do {this addItemToBackpack "ML700_frag_grenade_magazine";};
+this addItemToBackpack "ML700_krak_grenade_magazine";
+this addItemToBackpack "TIOW_ig_smoke_grenade_mag";
+for "_i" from 1 to 6 do {this addItemToBackpack "ic_las_powerpack";};
+for "_i" from 1 to 6 do {this addItemToBackpack "30Rnd_Agrip_mag";};
+this addHeadgear "IC_SOS_helmet_01";
+this addGoggles "IC_sos_mask_01";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "IC_cad_preysense_02_down";
+
+comment "Set identity";
+[this,"ChaosHead_57","male02gre"] call BIS_fnc_setIdentity;

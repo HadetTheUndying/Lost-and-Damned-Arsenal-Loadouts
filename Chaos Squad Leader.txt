@@ -1,0 +1,50 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "TIOW_Guard_Bolter_2";
+this addPrimaryWeaponItem "TIOW_Guard_BoltMag";
+this addWeapon "RamirisMelee_Chainsword_Heretic";
+
+comment "Add containers";
+this forceAddUniform "IC_sos_U_rifleman_01_O";
+this addVest "Ren_ArmorSet_06_grey";
+this addBackpack "Ren_Backpack_02_black";
+
+comment "Add binoculars";
+this addMagazine "Laserbatteries";
+this addWeapon "Laserdesignator";
+
+comment "Add items to containers";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+for "_i" from 1 to 4 do {this addItemToUniform "TIOW_Guard_BoltMag";};
+for "_i" from 1 to 6 do {this addItemToVest "TIOW_Guard_BoltMag";};
+this addItemToBackpack "ACE_EarPlugs";
+for "_i" from 1 to 2 do {this addItemToBackpack "ML700_frag_grenade_magazine";};
+for "_i" from 1 to 2 do {this addItemToBackpack "ML700_krak_grenade_magazine";};
+this addItemToBackpack "TIOW_ig_smoke_grenade_mag";
+this addGoggles "TIOW_IG_Headset";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "IC_cad_preysense_02_up";
+
+comment "Set identity";
+[this,"ChaosHead_57","male02gre"] call BIS_fnc_setIdentity;

@@ -1,0 +1,57 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "TIOW_arquebus_1";
+this addPrimaryWeaponItem "TIOW_arquebus_AP_mag";
+this addWeapon "TIOW_ARC_PISTOL_1";
+this addHandgunItem "TIOW_Arc_Pistol_Mag";
+
+comment "Add containers";
+this forceAddUniform "U_TIOW_Cultist";
+this addVest "TIOW_AM_CHEST_ARMOUR";
+this addBackpack "TIOW_ADMECH_TEK_BACK";
+
+comment "Add binoculars";
+this addMagazine "Laserbatteries";
+this addWeapon "Laserdesignator";
+
+comment "Add items to containers";
+this addItemToUniform "TIOW_arquebus_AP_mag";
+this addItemToUniform "TIOW_Arc_Pistol_Mag";
+for "_i" from 1 to 2 do {this addItemToUniform "TIOW_arquebus_HE_mag";};
+this addItemToVest "FirstAidKit";
+for "_i" from 1 to 2 do {this addItemToVest "ML700_frag_grenade_magazine";};
+for "_i" from 1 to 2 do {this addItemToVest "ML700_krak_grenade_magazine";};
+for "_i" from 1 to 2 do {this addItemToVest "TIOW_ig_melta_bomb_mag";};
+for "_i" from 1 to 2 do {this addItemToVest "TIOW_ig_smoke_grenade_mag";};
+this addItemToBackpack "DT_ToolKit";
+this addItemToBackpack "ToolKit";
+this addItemToBackpack "MineDetector";
+this addItemToBackpack "ACE_EarPlugs";
+for "_i" from 1 to 2 do {this addItemToBackpack "TIOW_Arc_Pistol_Mag";};
+this addHeadgear "TIOW_Cultist_Hood";
+this addGoggles "TIOW_Cultist_Gasmask";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "TIOW_PreysenseGoggles";
+
+comment "Set identity";
+[this,"ChaosHead_51","male03engb"] call BIS_fnc_setIdentity;

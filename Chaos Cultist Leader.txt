@@ -1,0 +1,41 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "AgripinaaAutoChaos";
+this addPrimaryWeaponItem "TIOW_M36_flashlight";
+this addPrimaryWeaponItem "30Rnd_Agrip_mag";
+this addWeapon "Knife_kukri";
+
+comment "Add containers";
+this forceAddUniform "U_TIOW_Cultist_brown";
+this addVest "TIOW_Cultist_Gear";
+
+comment "Add items to containers";
+for "_i" from 1 to 7 do {this addItemToUniform "30Rnd_Agrip_mag_Tracer";};
+for "_i" from 1 to 2 do {this addItemToUniform "TIOW_chaos_frag_grenade_mag";};
+this addItemToVest "FirstAidKit";
+for "_i" from 1 to 3 do {this addItemToVest "30Rnd_Agrip_mag_Tracer";};
+this addGoggles "TIOW_Cultist_FaceCover_Brown";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+
+comment "Set identity";
+[this,"ChaosHead_51","male02gre"] call BIS_fnc_setIdentity;

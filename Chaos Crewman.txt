@@ -1,0 +1,45 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "ML700_Lasgun_8Star_Rifle_Black";
+this addPrimaryWeaponItem "ML700_Lasgun_CarryHandle_black";
+this addPrimaryWeaponItem "ML700_Lasgun_Rifle_50_Battery";
+this addWeapon "Knife_kukri";
+
+comment "Add containers";
+this forceAddUniform "ML700_Bloodpact_Uniform1";
+this addVest "ML700_BP_Vest1";
+
+comment "Add items to containers";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+this addItemToUniform "ACE_EarPlugs";
+for "_i" from 1 to 5 do {this addItemToUniform "ML700_Lasgun_Rifle_50_Battery";};
+for "_i" from 1 to 2 do {this addItemToVest "ML700_frag_grenade_magazine";};
+for "_i" from 1 to 2 do {this addItemToVest "ML700_krak_grenade_magazine";};
+this addItemToVest "TIOW_ig_melta_bomb_mag";
+this addItemToVest "TIOW_ig_smoke_grenade_mag";
+this addHeadgear "ML700_Bloodpact_Helmet1";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "TIOW_PreysenseGoggles";
+
+comment "Set identity";
+[this,"ChaosHead_51","male03engb"] call BIS_fnc_setIdentity;

@@ -1,0 +1,48 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "TIOW_Chaos_Flamer";
+this addPrimaryWeaponItem "TIOW_Chaos_Flamer_mag";
+this addWeapon "WBK_pipeStyledSword";
+
+comment "Add containers";
+this forceAddUniform "IC_sos_U_rifleman_02_O";
+this addVest "Ren_ArmorSet_03_black";
+this addBackpack "TIOW_Chaos_Flamer_Backpack";
+
+comment "Add binoculars";
+this addWeapon "Binocular";
+
+comment "Add items to containers";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+this addItemToVest "ACE_EarPlugs";
+for "_i" from 1 to 2 do {this addItemToVest "ML700_frag_grenade_magazine";};
+this addItemToVest "ML700_krak_grenade_magazine";
+this addItemToVest "TIOW_ig_smoke_grenade_mag";
+this addItemToBackpack "TIOW_Chaos_Flamer_mag";
+this addHeadgear "Ren_Horned_Helm_02_black";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "IC_cad_preysense_02_down";
+
+comment "Set identity";
+[this,"WhiteHead_17","male02gre"] call BIS_fnc_setIdentity;

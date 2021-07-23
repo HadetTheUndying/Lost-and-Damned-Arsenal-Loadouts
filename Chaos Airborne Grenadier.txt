@@ -1,0 +1,55 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "ML700_Grenade_Launcher_BP";
+this addPrimaryWeaponItem "ML700_6rnd_HE";
+this addWeapon "LuciusLaspistolBlack";
+this addHandgunItem "LuciusLaspistol_mag";
+
+comment "Add containers";
+this forceAddUniform "ML700_Bloodpact_Uniform1";
+this addVest "ML700_BP_Armor0";
+this addBackpack "ML700_BP_Gravchute";
+
+comment "Add binoculars";
+this addWeapon "Binocular";
+
+comment "Add items to containers";
+for "_i" from 1 to 8 do {this addItemToUniform "ML700_6rnd_HE";};
+for "_i" from 1 to 2 do {this addItemToVest "FirstAidKit";};
+this addItemToVest "ACE_EarPlugs";
+this addItemToVest "ML700_frag_grenade_magazine";
+this addItemToVest "ML700_krak_grenade_magazine";
+for "_i" from 1 to 2 do {this addItemToVest "ML700_6rnd_HE";};
+for "_i" from 1 to 3 do {this addItemToVest "LuciusLaspistol_mag";};
+for "_i" from 1 to 2 do {this addItemToBackpack "ML700_L_GravFuel";};
+this addItemToBackpack "ML700_frag_grenade_magazine";
+this addItemToBackpack "ML700_krak_grenade_magazine";
+for "_i" from 1 to 2 do {this addItemToBackpack "TIOW_ig_smoke_grenade_mag";};
+for "_i" from 1 to 2 do {this addItemToBackpack "LuciusLaspistol_mag";};
+this addHeadgear "ML700_Bloodpact_Helmet1";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "TIOW_PreysenseGoggles";
+
+comment "Set identity";
+[this,"ChaosHead_51","male03engb"] call BIS_fnc_setIdentity;

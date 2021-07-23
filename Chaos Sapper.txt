@@ -1,0 +1,59 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "TIOW_delaque_flechette";
+this addPrimaryWeaponItem "optic_ACO_grn";
+this addPrimaryWeaponItem "TIOW_20rnd_Flechette";
+this addWeapon "hgun_Pistol_heavy_02_F";
+this addHandgunItem "optic_Yorris";
+this addHandgunItem "6Rnd_45ACP_Cylinder";
+
+comment "Add containers";
+this forceAddUniform "IC_sos_U_rifleman_02_O";
+this addVest "IC_Chaos_Armor_01";
+this addBackpack "Ren_Backpack_02_black";
+
+comment "Add binoculars";
+this addWeapon "Binocular";
+
+comment "Add items to containers";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+this addItemToUniform "ML700_frag_grenade_magazine";
+for "_i" from 1 to 2 do {this addItemToUniform "ML700_krak_grenade_magazine";};
+for "_i" from 1 to 2 do {this addItemToUniform "TIOW_ig_melta_bomb_mag";};
+for "_i" from 1 to 3 do {this addItemToUniform "TIOW_20rnd_Flechette";};
+this addItemToVest "ACE_EarPlugs";
+this addItemToVest "ACE_DeadManSwitch";
+this addItemToVest "ACE_DefusalKit";
+for "_i" from 1 to 2 do {this addItemToVest "TIOW_20rnd_Flechette";};
+for "_i" from 1 to 5 do {this addItemToVest "6Rnd_45ACP_Cylinder";};
+this addItemToBackpack "TIOW_melta_bomb_placeable_Mag";
+for "_i" from 1 to 2 do {this addItemToBackpack "SLAMDirectionalMine_Wire_Mag";};
+this addItemToBackpack "APERSBoundingMine_Range_Mag";
+this addHeadgear "H_Watchcap_blk";
+this addGoggles "G_Bandanna_blk";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "IC_cad_preysense_02_down";
+
+comment "Set identity";
+[this,"WhiteHead_17","male02gre"] call BIS_fnc_setIdentity;

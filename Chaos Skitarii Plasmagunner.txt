@@ -1,0 +1,44 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "TIOW_plasma_caliver_1";
+this addPrimaryWeaponItem "TIOW_plasma_CAV_mag";
+this addWeapon "RamirisMelee_TransonicBlade";
+
+comment "Add containers";
+this forceAddUniform "ML700_Skitarii_Uniform";
+this addVest "ML700_Skitarii_Ranger_Armor";
+this addBackpack "TIOW_ADMECH_VAN_BACK";
+
+comment "Add items to containers";
+for "_i" from 1 to 8 do {this addItemToUniform "TIOW_plasma_CAV_mag";};
+for "_i" from 1 to 2 do {this addItemToVest "FirstAidKit";};
+for "_i" from 1 to 2 do {this addItemToVest "TIOW_plasma_CAV_mag";};
+this addItemToBackpack "ACE_EarPlugs";
+for "_i" from 1 to 3 do {this addItemToBackpack "TIOW_arquebus_AP_mag";};
+for "_i" from 1 to 3 do {this addItemToBackpack "TIOW_arquebus_HE_mag";};
+this addHeadgear "ML700_Skitarii_Ranger_Helmet";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ML700_Integrated_NVG_Skitarii";
+
+comment "Set identity";
+[this,"ChaosHead_51","male03engb"] call BIS_fnc_setIdentity;

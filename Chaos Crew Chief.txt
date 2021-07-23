@@ -1,0 +1,59 @@
+
+comment "Exported from Arsenal by Sam";
+
+comment "[!] UNIT MUST BE LOCAL [!]";
+if (!local this) exitWith {};
+
+comment "Remove existing items";
+removeAllWeapons this;
+removeAllItems this;
+removeAllAssignedItems this;
+removeUniform this;
+removeVest this;
+removeBackpack this;
+removeHeadgear this;
+removeGoggles this;
+
+comment "Add weapons";
+this addWeapon "ML700_Lasgun_8Star_Rifle_Black";
+this addPrimaryWeaponItem "ML700_Lasgun_CarryHandle_black";
+this addPrimaryWeaponItem "ML700_Lasgun_Rifle_50_Battery";
+this addWeapon "Shovel_Russian";
+
+comment "Add containers";
+this forceAddUniform "ML700_Bloodpact_Uniform1";
+this addVest "ML700_BP_Armor0";
+this addBackpack "Ren_Backpack_02_black";
+
+comment "Add binoculars";
+this addMagazine "Laserbatteries";
+this addWeapon "Laserdesignator";
+
+comment "Add items to containers";
+for "_i" from 1 to 2 do {this addItemToUniform "FirstAidKit";};
+this addItemToUniform "ACE_EarPlugs";
+for "_i" from 1 to 5 do {this addItemToUniform "ML700_Lasgun_Rifle_50_Battery";};
+this addItemToVest "TIOW_ig_smoke_grenade_mag";
+for "_i" from 1 to 2 do {this addItemToVest "ML700_frag_grenade_magazine";};
+for "_i" from 1 to 2 do {this addItemToVest "TIOW_ig_melta_bomb_mag";};
+for "_i" from 1 to 4 do {this addItemToVest "ML700_Lasgun_Rifle_50_Battery";};
+this addItemToBackpack "ToolKit";
+this addItemToBackpack "ACE_EarPlugs";
+this addItemToBackpack "ACE_EntrenchingTool";
+this addItemToBackpack "ACE_Fortify";
+this addItemToBackpack "ACE_wirecutter";
+this addItemToBackpack "MineDetector";
+this addItemToBackpack "ACE_DefusalKit";
+this addItemToBackpack "ML700_Lasgun_Rifle_50_Battery";
+this addHeadgear "ML700_Bloodpact_Helmet_Officer_Silver";
+
+comment "Add items";
+this linkItem "ItemMap";
+this linkItem "ItemCompass";
+this linkItem "ItemWatch";
+this linkItem "ItemRadio";
+this linkItem "ItemGPS";
+this linkItem "TIOW_PreysenseGoggles";
+
+comment "Set identity";
+[this,"ChaosHead_57","male02gre"] call BIS_fnc_setIdentity;
